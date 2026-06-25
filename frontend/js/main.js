@@ -8,7 +8,7 @@ document.getElementById("navToggle").addEventListener("click", () => {
 // ---------- Hero mirror rotation (local images) ----------
 const mirrorSlides = [
   {
-    image: "images/nails.jpg",      // <-- upload your own image
+    image: "images/Screenshot 2026-06-25 220426",      // <-- upload your own image
     label: "Nails",
     sub: "Builder gel, acrylic &amp; nail art"
   },
@@ -18,7 +18,7 @@ const mirrorSlides = [
     sub: "Classic, hybrid &amp; volume sets"
   },
   {
-    image: "images/hair.jpg",       // <-- upload your own image
+    image: "images/Screenshot 2026-06-25 220345.png",       // <-- upload your own image
     label: "Hair Installation",
     sub: "Wigs, weaves &amp; closures, installed right"
   },

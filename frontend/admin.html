@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Studio Admin — Mandisa Nailed It</title>
+<meta name="robots" content="noindex, nofollow" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css" />
+<link rel="stylesheet" href="css/admin.css" />
+</head>
+<body class="admin-body">
+
+<!-- ============ AUTH SCREENS ============ -->
+<div class="auth-wrap" id="authWrap">
+
+  <!-- LOGIN -->
+  <div class="auth-card" id="loginCard">
+    <span class="nav-logo">Mandisa <span>Nailed It</span></span>
+    <p class="auth-sub">Studio admin console</p>
+    <form id="loginForm">
+      <div class="field">
+        <label for="loginEmail">Email</label>
+        <input type="email" id="loginEmail" required />
+      </div>
+      <div class="field">
+        <label for="loginPassword">Password</label>
+        <input type="password" id="loginPassword" required />
+      </div>
+      <button type="submit" class="btn btn-gold">Log in</button>
+      <div id="loginFeedback"></div>
+    </form>
+    <p class="auth-links"><a id="showForgot">Forgot your password?</a></p>
+  </div>
+
+  <!-- FORGOT PASSWORD -->
+  <div class="auth-card" id="forgotCard" hidden>
+    <span class="nav-logo">Mandisa <span>Nailed It</span></span>
+    <p class="auth-sub">We'll email you a reset link</p>
+    <form id="forgotForm">
+      <div class="field">
+        <label for="forgotEmail">Admin email</label>
+        <input type="email" id="forgotEmail" required />
+      </div>
+      <button type="submit" class="btn btn-gold">Send reset link</button>
+      <div id="forgotFeedback"></div>
+    </form>
+    <p class="auth-links"><a id="showLoginFromForgot">Back to login</a></p>
+  </div>
+
+  <!-- RESET PASSWORD (reached via emailed link: admin.html?resetToken=...) -->
+  <div class="auth-card" id="resetCard" hidden>
+    <span class="nav-logo">Mandisa <span>Nailed It</span></span>
+    <p class="auth-sub">Choose a new password</p>
+    <form id="resetForm">
+      <div class="field">
+        <label for="resetPassword">New password</label>
+        <input type="password" id="resetPassword" minlength="8" required />
+      </div>
+      <div class="field">
+        <label for="resetPasswordConfirm">Confirm new password</label>
+        <input type="password" id="resetPasswordConfirm" minlength="8" required />
+      </div>
+      <button type="submit" class="btn btn-gold">Update password</button>
+      <div id="resetFeedback"></div>
+    </form>
+    <p class="auth-links"><a id="showLoginFromReset">Back to login</a></p>
+  </div>
+
+</div>
+
+<!-- ============ DASHBOARD ============ -->
+<div class="admin-shell" id="dashboard" hidden>
+  <aside class="admin-sidebar">
+    <span class="nav-logo">Mandisa <span>Nailed It</span></span>
+    <ul class="admin-tabs">
+      <li><button data-tab="services" class="active">Services</button></li>
+      <li><button data-tab="products">Products</button></li>
+      <li><button data-tab="discounts">Discounts &amp; Offers</button></li>
+      <li><button data-tab="reviews">Reviews</button></li>
+    </ul>
+    <button class="btn btn-outline admin-logout" id="logoutBtn" style="color:var(--blush);border-color:rgba(250,246,241,0.3);">Log out</button>
+  </aside>
+
+  <main class="admin-main">
+
+    <!-- SERVICES TAB -->
+    <section id="tab-services" class="admin-tab">
+      <div class="admin-main-head">
+        <h2>Services</h2>
+        <button class="btn btn-gold" id="addServiceBtn">+ Add service</button>
+      </div>
+      <div class="admin-table-wrap">
+        <table class="admin-table">
+          <thead><tr><th>Name</th><th>Category</th><th>Price</th><th>Duration</th><th>Status</th><th></th></tr></thead>
+          <tbody id="servicesTableBody"><tr class="empty-row"><td colspan="6">Loading…</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- PRODUCTS TAB -->
+    <section id="tab-products" class="admin-tab" hidden>
+      <div class="admin-main-head">
+        <h2>Products</h2>
+        <button class="btn btn-gold" id="addProductBtn">+ Add product</button>
+      </div>
+      <div class="admin-table-wrap">
+        <table class="admin-table">
+          <thead><tr><th>Name</th><th>Brand</th><th>Category</th><th>Price</th><th>Stock</th><th>Status</th><th></th></tr></thead>
+          <tbody id="productsTableBody"><tr class="empty-row"><td colspan="7">Loading…</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- DISCOUNTS TAB -->
+    <section id="tab-discounts" class="admin-tab" hidden>
+      <div class="admin-main-head">
+        <h2>Discounts &amp; Limited-Time Offers</h2>
+        <button class="btn btn-gold" id="addDiscountBtn">+ Add discount</button>
+      </div>
+      <div class="admin-table-wrap">
+        <table class="admin-table">
+          <thead><tr><th>Title</th><th>Applies To</th><th>Amount</th><th>Window</th><th>Status</th><th></th></tr></thead>
+          <tbody id="discountsTableBody"><tr class="empty-row"><td colspan="6">Loading…</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- REVIEWS TAB -->
+    <section id="tab-reviews" class="admin-tab" hidden>
+      <div class="admin-main-head"><h2>Reviews</h2></div>
+      <div class="admin-table-wrap">
+        <table class="admin-table">
+          <thead><tr><th>Customer</th><th>Rating</th><th>Comment</th><th>Status</th><th></th></tr></thead>
+          <tbody id="reviewsTableBody"><tr class="empty-row"><td colspan="5">Loading…</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- Modal mount point -->
+<div id="modalRoot"></div>
+
+<script src="js/config.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>

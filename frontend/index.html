@@ -1,151 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Mandisa Nailed It — Nails, Lashes & Hair Studio</title>
-<meta name="description" content="Mandisa Nailed It — nails, lashes, hair installation and quality hair products." />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mandisa Nailed It — Nails, Lashes & Hair Studio</title>
+    <meta name="description" content="Mandisa Nailed It — nails, lashes, hair installation and quality hair products." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
 
-<nav class="nav">
-  <div class="container">
-    <div class="nav-logo">Mandisa <span>Nailed It</span></div>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">&#9776;</button>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#services">Services</a></li>
-      <li><a href="#products">Products</a></li>
-      <li><a href="#reviews">Reviews</a></li>
-      <li><a href="#location">Find Us</a></li>
-    </ul>
-  </div>
-</nav>
-
-<header class="hero">
-  <div class="container">
-    <div class="hero-copy">
-      <span class="eyebrow">Nails · Lashes · Hair</span>
-      <h1>Look good.<br>Feel <em>nailed it.</em></h1>
-      <p>A studio for nails, lashes, hair installation and quality hair products — booked by people who like leaving better than they arrived.</p>
-      <div class="hero-actions">
-        <a href="#services" class="btn btn-gold">View services &amp; prices</a>
-        <a href="#location" class="btn btn-outline">Find the studio</a>
-      </div>
-    </div>
-    <div class="mirror" id="mirror">
-      <div class="mirror-slide" id="mirrorSlide">
-        <div class="glyph">&#128131;</div>
-        <div class="label">Nails</div>
-        <div class="sub">Builder gel, acrylic &amp; nail art</div>
-      </div>
-      <div class="mirror-dots" id="mirrorDots"></div>
-    </div>
-  </div>
-</header>
-
-<!-- SERVICES -->
-<section class="section" id="services">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">The Menu</span>
-      <h2>Services &amp; Pricing</h2>
-      <p>Current prices, updated live by the studio. Highlighted items are running a limited-time offer.</p>
-    </div>
-    <div class="menu-grid" id="servicesGrid">
-      <p class="empty-note">Loading services…</p>
-    </div>
-  </div>
-</section>
-
-<!-- PRODUCTS -->
-<section class="section section-blush" id="products">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">Take It Home</span>
-      <h2>Hair Products</h2>
-      <p>Quality bundles, weaves and care products, curated by Mandisa.</p>
-    </div>
-    <div class="product-grid" id="productsGrid">
-      <p class="empty-note">Loading products…</p>
-    </div>
-  </div>
-</section>
-
-<!-- REVIEWS -->
-<section class="section" id="reviews">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">Word On The Street</span>
-      <h2>Client Reviews</h2>
-      <p>Real feedback from real clients.</p>
-    </div>
-    <div class="review-grid" id="reviewsGrid">
-      <p class="empty-note">Loading reviews…</p>
-    </div>
-
-    <form class="review-form" id="reviewForm">
-      <h3>Leave a review</h3>
-      <div class="field">
-        <label for="reviewName">Your name</label>
-        <input type="text" id="reviewName" required maxlength="60" />
-      </div>
-      <div class="field">
-        <label>Your rating</label>
-        <div class="star-select" id="starSelect" data-value="0">
-          <button type="button" data-star="1">&#9733;</button>
-          <button type="button" data-star="2">&#9733;</button>
-          <button type="button" data-star="3">&#9733;</button>
-          <button type="button" data-star="4">&#9733;</button>
-          <button type="button" data-star="5">&#9733;</button>
+    <!-- ========== NAV ========== -->
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-logo">Mandisa <span>Nailed It</span></div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#location">Find Us</a></li>
+            </ul>
         </div>
-      </div>
-      <div class="field">
-        <label for="reviewComment">Your review</label>
-        <textarea id="reviewComment" rows="4" required maxlength="500"></textarea>
-      </div>
-      <button type="submit" class="btn btn-gold">Submit review</button>
-      <p class="form-note">Reviews are checked by the studio before they go live, so yours may take a little while to appear.</p>
-      <div id="reviewFeedback"></div>
-    </form>
-  </div>
-</section>
+    </nav>
 
-<!-- LOCATION -->
-<section class="section section-blush" id="location">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">Find Us</span>
-      <h2>Visit The Studio</h2>
-    </div>
-    <div class="location-grid">
-      <div class="location-details">
-        <h3>Mandisa Nailed It</h3>
-        <div class="location-row"><span class="icon">&#128205;</span><span>Mr468 St, Sithundu Hill, Pinetown, 3610<br></span></div>
-        <div class="location-row"><span class="icon">&#128222;</span><span>+27 67 045 8485</span></div>
-        <div class="location-row"><span class="icon">&#9993;</span><span>example@mandisanailedit.co.za</span></div>
-        <div class="location-row"><span class="icon">&#128337;</span><span>Tue–Sat: 9am – 6pm<br>Sun &amp; Mon: Closed</span></div>
-      </div>
-      <div class="map-frame">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3288.582123781962!2d30.793910175337896!3d-29.8709468750113!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ef6f98fac5e363f%3A0x35d87c2bd885f3f4!2sMandisa%20Nailed%20It!5e1!3m2!1sen!2sza!4v1782398750740!5m2!1sen!2sza"
-          allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-          title="Studio location map"></iframe>
-      </div>
-    </div>
-  </div>
-</section>
+    <!-- ========== HERO ========== -->
+    <header class="hero">
+        <div class="container">
+            <div class="hero-copy">
+                <span class="eyebrow">Nails · Lashes · Hair</span>
+                <h1>Look good.<br />Feel <em>nailed it.</em></h1>
+                <p>A studio for nails, lashes, hair installation and quality hair products — booked by people who like leaving better than they arrived.</p>
+                <div class="hero-actions">
+                    <a href="#services" class="btn btn-primary">View services &amp; prices</a>
+                    <a href="#location" class="btn btn-outline">Find the studio</a>
+                </div>
+            </div>
+            <div class="mirror" id="mirror">
+                <div class="mirror-slide" id="mirrorSlide">
+                    <!-- slides injected by JS -->
+                </div>
+                <div class="mirror-dots" id="mirrorDots"></div>
+            </div>
+        </div>
+    </header>
 
-<footer class="footer">
-  <div class="container">
-    <p>&copy; <span id="year"></span> Mandisa Nailed It. All rights reserved.</p>
-    <a class="footer-admin-link" href="admin.html">Studio admin login</a>
-  </div>
-</footer>
+    <!-- ========== SERVICES ========== -->
+    <section class="section" id="services">
+        <div class="container">
+            <div class="section-head">
+                <span class="eyebrow">The Menu</span>
+                <h2>Services &amp; Pricing</h2>
+                <p>Current prices, updated live by the studio. Highlighted items are running a limited-time offer.</p>
+            </div>
+            <div class="menu-grid" id="servicesGrid">
+                <p class="empty-note">Loading services…</p>
+            </div>
+        </div>
+    </section>
 
-<script src="js/config.js"></script>
-<script src="js/main.js"></script>
+    <!-- ========== PRODUCTS ========== -->
+    <section class="section section-light" id="products">
+        <div class="container">
+            <div class="section-head">
+                <span class="eyebrow">Take It Home</span>
+                <h2>Hair Products</h2>
+                <p>Quality bundles, weaves and care products, curated by Mandisa.</p>
+            </div>
+            <div class="product-grid" id="productsGrid">
+                <p class="empty-note">Loading products…</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== REVIEWS ========== -->
+    <section class="section" id="reviews">
+        <div class="container">
+            <div class="section-head">
+                <span class="eyebrow">Word On The Street</span>
+                <h2>Client Reviews</h2>
+                <p>Real feedback from real clients.</p>
+            </div>
+            <div class="review-grid" id="reviewsGrid">
+                <p class="empty-note">Loading reviews…</p>
+            </div>
+
+            <form class="review-form" id="reviewForm">
+                <h3>Leave a review</h3>
+                <div class="field">
+                    <label for="reviewName">Your name</label>
+                    <input type="text" id="reviewName" required maxlength="60" />
+                </div>
+                <div class="field">
+                    <label>Your rating</label>
+                    <div class="star-select" id="starSelect" data-value="0">
+                        <button type="button" data-star="1"><i class="fas fa-star"></i></button>
+                        <button type="button" data-star="2"><i class="fas fa-star"></i></button>
+                        <button type="button" data-star="3"><i class="fas fa-star"></i></button>
+                        <button type="button" data-star="4"><i class="fas fa-star"></i></button>
+                        <button type="button" data-star="5"><i class="fas fa-star"></i></button>
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="reviewComment">Your review</label>
+                    <textarea id="reviewComment" rows="4" required maxlength="500"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit review</button>
+                <p class="form-note">Reviews are checked by the studio before they go live, so yours may take a little while to appear.</p>
+                <div id="reviewFeedback"></div>
+            </form>
+        </div>
+    </section>
+
+    <!-- ========== LOCATION ========== -->
+    <section class="section section-light" id="location">
+        <div class="container">
+            <div class="section-head">
+                <span class="eyebrow">Find Us</span>
+                <h2>Visit The Studio</h2>
+            </div>
+            <div class="location-grid">
+                <div class="location-details">
+                    <h3>Mandisa Nailed It</h3>
+                    <div class="location-row">
+                        <span class="icon"><i class="fas fa-location-dot"></i></span>
+                        <span>Mr468 St, Sithundu Hill, Pinetown, 3610</span>
+                    </div>
+                    <div class="location-row">
+                        <span class="icon"><i class="fas fa-phone"></i></span>
+                        <span>+27 67 045 8485</span>
+                    </div>
+                    <div class="location-row">
+                        <span class="icon"><i class="fas fa-envelope"></i></span>
+                        <span>example@mandisanailedit.co.za</span>
+                    </div>
+                    <div class="location-row">
+                        <span class="icon"><i class="fas fa-clock"></i></span>
+                        <span>Tue–Sat: 9am – 6pm<br />Sun &amp; Mon: Closed</span>
+                    </div>
+                </div>
+                <div class="map-frame">
+                    <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3288.582123781962!2d30.793910175337896!3d-29.8709468750113!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ef6f98fac5e363f%3A0x35d87c2bd885f3f4!2sMandisa%20Nailed%20It!5e1!3m2!1sen!2sza!4v1782398750740!5m2!1sen!2sza"
+                    allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                    title="Studio location map"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; <span id="year"></span> Mandisa Nailed It. All rights reserved.</p>
+            <a class="footer-admin-link" href="admin.html">Studio admin login</a>
+        </div>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

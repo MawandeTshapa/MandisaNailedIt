@@ -1,8 +1,8 @@
 /* ===================================================================
-   MANDISA NAILED IT — minimal black & white
-   Palette: pure black, crisp white, soft grays
-   Type: Inter (everything – clean, minimal, modern)
-   Icons: Font Awesome (replaces all emojis)
+   MANDISA NAILED IT — pink & black
+   Palette: Hot pink (#e6005c), black (#1a1a1a), crisp white, soft grays
+   Type: Inter (clean, modern)
+   Icons: Font Awesome
    =================================================================== */
 
 /* ----- reset & base ----- */
@@ -42,13 +42,13 @@ a {
     padding: 0 24px;
 }
 
-/* minimal "eyebrow" — all caps, tiny, spaced */
+/* "eyebrow" — pink, caps, spaced */
 .eyebrow {
     font-size: 0.7rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: #777777;
-    font-weight: 500;
+    color: #e6005c;
+    font-weight: 600;
 }
 
 h1,
@@ -83,13 +83,13 @@ h2 {
 }
 
 .btn-primary {
-    background: #1a1a1a;
+    background: #e6005c;
     color: #ffffff;
-    border-color: #1a1a1a;
+    border-color: #e6005c;
 }
 .btn-primary:hover {
-    background: #000000;
-    border-color: #000000;
+    background: #b30048;
+    border-color: #b30048;
 }
 
 .btn-outline {
@@ -98,8 +98,8 @@ h2 {
     color: #1a1a1a;
 }
 .btn-outline:hover {
-    border-color: #1a1a1a;
-    background: rgba(0, 0, 0, 0.03);
+    border-color: #e6005c;
+    color: #e6005c;
 }
 
 /* ----- navigation ----- */
@@ -126,7 +126,7 @@ h2 {
 }
 .nav-logo span {
     font-weight: 300;
-    color: #777777;
+    color: #e6005c;
 }
 
 .nav-links {
@@ -143,7 +143,7 @@ h2 {
     transition: color 0.2s;
 }
 .nav-links a:hover {
-    color: #000000;
+    color: #e6005c;
 }
 
 .nav-toggle {
@@ -179,7 +179,7 @@ h2 {
 
 /* ----- hero / mirror ----- */
 .hero {
-    background: #f8f8f8;
+    background: #fafafa;
     padding: 64px 0 80px;
     border-bottom: 1px solid #eaeaea;
 }
@@ -214,8 +214,8 @@ h2 {
 }
 .hero-copy h1 em {
     font-style: normal;
-    color: #000000;
-    border-bottom: 3px solid #000000;
+    color: #e6005c;
+    border-bottom: 3px solid #e6005c;
 }
 
 .hero-copy p {
@@ -240,7 +240,7 @@ h2 {
     border-radius: 180px 180px 12px 12px;
     background: #ffffff;
     border: 2px solid #1a1a1a;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 20px 40px rgba(230, 0, 92, 0.08);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -267,8 +267,8 @@ h2 {
     width: 100%;
     height: 100%;
     fill: none;
-    stroke: #1a1a1a;
-    stroke-width: 1.8;
+    stroke: #e6005c;
+    stroke-width: 2;
     stroke-linecap: round;
     stroke-linejoin: round;
 }
@@ -304,7 +304,7 @@ h2 {
     transition: background 0.2s;
 }
 .mirror-dots button.active {
-    background: #1a1a1a;
+    background: #e6005c;
 }
 
 /* ----- sections ----- */
@@ -312,7 +312,7 @@ h2 {
     padding: 76px 0;
 }
 .section-light {
-    background: #f8f8f8;
+    background: #fafafa;
 }
 
 .section-head {
@@ -346,7 +346,7 @@ h2 {
 .menu-card h3 {
     font-size: 1.1rem;
     font-weight: 600;
-    border-bottom: 2px solid #1a1a1a;
+    border-bottom: 2px solid #e6005c;
     padding-bottom: 12px;
     margin-bottom: 18px;
     display: flex;
@@ -388,7 +388,7 @@ h2 {
     margin-right: 6px;
 }
 .menu-item-price .now {
-    color: #1a1a1a;
+    color: #e6005c;
 }
 
 .menu-item-desc {
@@ -404,7 +404,7 @@ h2 {
     font-weight: 600;
     letter-spacing: 0.04em;
     text-transform: uppercase;
-    background: #1a1a1a;
+    background: #e6005c;
     color: #ffffff;
     padding: 2px 10px;
     border-radius: 2px;
@@ -477,6 +477,7 @@ h2 {
 .product-price {
     margin-top: 12px;
     font-weight: 700;
+    color: #e6005c;
 }
 .product-price .was {
     text-decoration: line-through;
@@ -502,7 +503,7 @@ h2 {
 }
 
 .stars {
-    color: #1a1a1a;
+    color: #e6005c;
     letter-spacing: 3px;
     margin-bottom: 10px;
     font-size: 0.95rem;
@@ -537,6 +538,7 @@ h2 {
     text-align: center;
     margin-bottom: 22px;
     font-weight: 600;
+    color: #1a1a1a;
 }
 
 .field {
@@ -566,7 +568,7 @@ h2 {
 .field textarea:focus,
 .field select:focus {
     outline: none;
-    border-color: #1a1a1a;
+    border-color: #e6005c;
     background: #ffffff;
 }
 
@@ -584,7 +586,7 @@ h2 {
     transition: color 0.15s;
 }
 .star-select button.active {
-    color: #1a1a1a;
+    color: #e6005c;
 }
 
 .form-note {
@@ -630,6 +632,14 @@ h2 {
     margin-bottom: 18px;
     font-size: 1.3rem;
 }
+.location-details h3::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 3px;
+    background: #e6005c;
+    margin-top: 6px;
+}
 
 .location-row {
     display: flex;
@@ -639,7 +649,7 @@ h2 {
 }
 .location-row .icon {
     width: 22px;
-    color: #aaaaaa;
+    color: #e6005c;
     font-size: 1rem;
     margin-top: 2px;
 }
@@ -664,14 +674,14 @@ h2 {
     padding: 40px 0;
     text-align: center;
     font-size: 0.85rem;
-    border-top: 1px solid #2a2a2a;
+    border-top: 2px solid #e6005c;
 }
 .footer a {
     color: #dddddd;
     transition: color 0.2s;
 }
 .footer a:hover {
-    color: #ffffff;
+    color: #e6005c;
 }
 .footer-admin-link {
     display: inline-block;

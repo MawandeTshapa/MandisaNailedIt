@@ -1,0 +1,22 @@
+# Netlify deploy config for Mandisa Nailed It.
+#
+# This project keeps frontend/ and backend/ as siblings, so we point Netlify
+# at backend/ as the "base" (where it runs npm install and finds the
+# function), and tell it the publish folder and functions folder relative
+# to that base.
+
+[build]
+  base = "backend"
+  publish = "../frontend"
+  functions = "netlify/functions"
+  command = "npm install"
+
+[functions]
+  node_bundler = "esbuild"
+
+# Sends /api/* requests to the api Netlify Function. The frontend's
+# js/config.js already calls "/api/..." so nothing there needs to change.
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/api/:splat"
+  status = 200

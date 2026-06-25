@@ -5,12 +5,25 @@ document.getElementById("navToggle").addEventListener("click", () => {
   document.getElementById("navLinks").classList.toggle("open");
 });
 
-// ---------- Hero mirror rotation ----------
+// ---------- Hero mirror rotation (local images) ----------
 const mirrorSlides = [
-  { glyph: "&#128131;", label: "Nails", sub: "Builder gel, acrylic &amp; nail art" },
-  { glyph: "&#128064;", label: "Lashes", sub: "Classic, hybrid &amp; volume sets" },
-  { glyph: "&#128119;", label: "Hair Installation", sub: "Wigs, weaves &amp; closures, installed right" },
+  {
+    image: "images/nails.jpg",      // <-- upload your own image
+    label: "Nails",
+    sub: "Builder gel, acrylic &amp; nail art"
+  },
+  {
+    image: "images/lashes.jpg",     // <-- upload your own image
+    label: "Lashes",
+    sub: "Classic, hybrid &amp; volume sets"
+  },
+  {
+    image: "images/hair.jpg",       // <-- upload your own image
+    label: "Hair Installation",
+    sub: "Wigs, weaves &amp; closures, installed right"
+  },
 ];
+
 let mirrorIndex = 0;
 const mirrorSlideEl = document.getElementById("mirrorSlide");
 const mirrorDotsEl = document.getElementById("mirrorDots");
@@ -20,7 +33,9 @@ function renderMirror() {
   mirrorSlideEl.style.opacity = 0;
   setTimeout(() => {
     mirrorSlideEl.innerHTML = `
-      <div class="glyph">${s.glyph}</div>
+      <div class="slide-image">
+        <img src="${s.image}" alt="${s.label}" />
+      </div>
       <div class="label">${s.label}</div>
       <div class="sub">${s.sub}</div>
     `;
@@ -42,7 +57,7 @@ setInterval(() => {
   renderMirror();
 }, 4500);
 
-// ---------- Helpers ----------
+// ---------- Helpers (unchanged) ----------
 function formatPrice(n) {
   return "R" + Number(n).toFixed(2);
 }
@@ -60,7 +75,7 @@ function priceMarkup(item) {
   return `<span class="now">${formatPrice(item.originalPrice ?? item.price)}</span>`;
 }
 
-// ---------- Services (grouped into menu cards by category) ----------
+// ---------- Services (unchanged) ----------
 async function loadServices() {
   const grid = document.getElementById("servicesGrid");
   try {
@@ -100,7 +115,7 @@ async function loadServices() {
   }
 }
 
-// ---------- Products ----------
+// ---------- Products (unchanged) ----------
 async function loadProducts() {
   const grid = document.getElementById("productsGrid");
   try {
@@ -131,7 +146,7 @@ async function loadProducts() {
   }
 }
 
-// ---------- Reviews ----------
+// ---------- Reviews (unchanged) ----------
 async function loadReviews() {
   const grid = document.getElementById("reviewsGrid");
   try {
@@ -155,7 +170,7 @@ async function loadReviews() {
   }
 }
 
-// ---------- Review submission ----------
+// ---------- Review submission (unchanged) ----------
 const starSelect = document.getElementById("starSelect");
 starSelect.querySelectorAll("button").forEach((btn) => {
   btn.addEventListener("click", () => {

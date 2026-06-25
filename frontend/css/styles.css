@@ -230,7 +230,7 @@ h2 {
   flex-wrap: wrap;
 }
 
-/* ----- THE MIRROR (full‑size background images) ----- */
+/* ----- THE MIRROR (full‑size background images, no overlay) ----- */
 .mirror {
   position: relative;
   width: min(360px, 100%);
@@ -258,12 +258,9 @@ h2 {
   position: relative;
 }
 
-/* Fallback gradient when image is loading or missing */
-.mirror-slide:not([style*="background-image"]) {
-  background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
-}
+/* NO OVERLAY – your dark images will do the job */
 
-/* Pink accent border glow */
+/* Pink glow border (optional – remove if you want) */
 .mirror::before {
   content: "";
   position: absolute;
@@ -271,23 +268,14 @@ h2 {
   border-radius: 182px 182px 14px 14px;
   background: linear-gradient(135deg, #e6005c, #ff3388, #e6005c);
   z-index: -1;
-  opacity: 0.3;
-}
-
-/* Dark overlay for text readability */
-.mirror-slide::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.4);
-  z-index: 1;
+  opacity: 0.25;
 }
 
 .mirror-text {
   position: relative;
   z-index: 2;
   color: #ffffff;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
 }
 
 .mirror-text .label {
@@ -302,7 +290,7 @@ h2 {
   opacity: 0.9;
 }
 
-/* Navigation dots */
+/* navigation dots */
 .mirror-dots {
   position: absolute;
   bottom: 28px;

@@ -232,28 +232,6 @@ h2 {
 }
 
 /* the mirror */
-.mirror {
-    position: relative;
-    width: min(360px, 100%);
-    margin: 0 auto;
-    aspect-ratio: 3 / 4;
-    border-radius: 180px 180px 12px 12px;
-    background: #ffffff;
-    border: 2px solid #1a1a1a;
-    box-shadow: 0 20px 40px rgba(230, 0, 92, 0.08);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 40px 24px;
-    overflow: hidden;
-}
-
-.mirror-slide {
-    transition: opacity 0.4s ease;
-    width: 100%;
-}
-
 .mirror-slide .slide-image {
     width: 80px;
     height: 80px;
@@ -284,15 +262,6 @@ h2 {
     font-size: 0.9rem;
 }
 
-.mirror-dots {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    position: absolute;
-    bottom: 28px;
-    left: 0;
-    right: 0;
-}
 .mirror-dots button {
     width: 8px;
     height: 8px;
@@ -306,7 +275,73 @@ h2 {
 .mirror-dots button.active {
     background: #e6005c;
 }
+........
+/* ----- Mirror: full‑size image background ----- */
+.mirror {
+  position: relative;
+  width: min(360px, 100%);
+  margin: 0 auto;
+  aspect-ratio: 3 / 4;
+  border-radius: 180px 180px 12px 12px;
+  background: #ffffff;
+  border: 2px solid #1a1a1a;
+  box-shadow: 0 20px 40px rgba(230, 0, 92, 0.08);
+  overflow: hidden; /* keeps the image inside the rounded shape */
+}
 
+.mirror-slide {
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.4s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 24px;
+  /* background image will be set by JS */
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+/* Overlay to keep text readable */
+.mirror-slide::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35); /* dark overlay – adjust opacity as needed */
+  z-index: 1;
+}
+
+.mirror-text {
+  position: relative;
+  z-index: 2;
+  color: #ffffff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.mirror-text .label {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+.mirror-text .sub {
+  color: #f0f0f0;
+  font-size: 0.95rem;
+}
+
+/* Dots stay at the bottom, above the image */
+.mirror-dots {
+  position: absolute;
+  bottom: 28px;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
 /* ----- sections ----- */
 .section {
     padding: 76px 0;

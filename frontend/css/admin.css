@@ -1,0 +1,101 @@
+/* Builds on css/styles.css for color/type tokens and .btn/.field styles */
+
+body.admin-body { background: var(--blush); }
+
+/* ---------- Auth screen ---------- */
+.auth-wrap {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.auth-card {
+  width: 100%;
+  max-width: 400px;
+  background: var(--white);
+  border-radius: 10px;
+  padding: 36px 32px;
+  box-shadow: 0 20px 50px rgba(42, 18, 32, 0.12);
+}
+.auth-card .nav-logo { color: var(--ink-plum); font-size: 1.4rem; text-align: center; display: block; margin-bottom: 4px; }
+.auth-card .nav-logo span { color: var(--gold); }
+.auth-sub { text-align: center; color: var(--charcoal-60); font-size: 0.88rem; margin-bottom: 26px; }
+.auth-card .btn { width: 100%; justify-content: center; }
+.auth-links { text-align: center; margin-top: 16px; font-size: 0.85rem; }
+.auth-links a { color: var(--ink-plum); text-decoration: underline; cursor: pointer; }
+
+/* ---------- Dashboard shell ---------- */
+.admin-shell { display: flex; min-height: 100vh; }
+.admin-sidebar {
+  width: 220px;
+  background: var(--ink-plum);
+  color: var(--blush);
+  padding: 26px 18px;
+  flex-shrink: 0;
+}
+.admin-sidebar .nav-logo { color: var(--cream); font-size: 1.05rem; margin-bottom: 30px; display: block; }
+.admin-sidebar .nav-logo span { color: var(--gold); }
+.admin-tabs { list-style: none; padding: 0; margin: 0; }
+.admin-tabs li button {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  color: var(--blush);
+  padding: 11px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.92rem;
+  margin-bottom: 4px;
+}
+.admin-tabs li button.active { background: rgba(201,162,39,0.18); color: var(--gold-soft); font-weight: 600; }
+.admin-tabs li button:hover { background: rgba(250,246,241,0.06); }
+.admin-logout { margin-top: 30px; width: 100%; }
+
+.admin-main { flex: 1; padding: 32px 36px; overflow-x: auto; }
+.admin-main-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; flex-wrap: wrap; gap: 12px; }
+.admin-main-head h2 { color: var(--ink-plum); font-size: 1.5rem; }
+
+.admin-table-wrap { background: var(--white); border-radius: 8px; border: 1px solid var(--line); overflow: hidden; }
+table.admin-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+table.admin-table th, table.admin-table td { text-align: left; padding: 12px 16px; border-bottom: 1px solid var(--line); }
+table.admin-table th { background: var(--cream); font-family: var(--font-mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--charcoal-60); }
+table.admin-table tr:last-child td { border-bottom: none; }
+.row-actions { display: flex; gap: 8px; }
+.row-actions button { background: none; border: 1px solid var(--line); border-radius: 5px; padding: 5px 10px; cursor: pointer; font-size: 0.82rem; }
+.row-actions button.danger { color: #9c2b2b; border-color: rgba(156,43,43,0.3); }
+.row-actions button.danger:hover { background: rgba(156,43,43,0.08); }
+.row-actions button:hover { background: var(--cream); }
+
+.status-pill { font-size: 0.74rem; padding: 3px 9px; border-radius: 999px; font-weight: 600; }
+.status-pill.active, .status-pill.approved { background: rgba(47,107,58,0.12); color: #2f6b3a; }
+.status-pill.inactive, .status-pill.rejected { background: rgba(156,43,43,0.1); color: #9c2b2b; }
+.status-pill.pending { background: rgba(201,162,39,0.18); color: #8a6c10; }
+
+/* ---------- Modal ---------- */
+.modal-overlay {
+  position: fixed; inset: 0; background: rgba(28,20,20,0.55);
+  display: flex; align-items: center; justify-content: center; padding: 20px; z-index: 100;
+}
+.modal-card {
+  background: var(--white); border-radius: 10px; padding: 30px 28px;
+  max-width: 460px; width: 100%; max-height: 90vh; overflow-y: auto;
+}
+.modal-card h3 { color: var(--ink-plum); margin-bottom: 20px; }
+.modal-actions { display: flex; gap: 10px; justify-content: flex-end; margin-top: 22px; }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.checkbox-row { display: flex; align-items: center; gap: 8px; margin-bottom: 18px; }
+.checkbox-row input { width: auto; }
+.empty-row td { text-align: center; color: var(--charcoal-60); padding: 28px; font-style: italic; }
+.toast { position: fixed; bottom: 24px; right: 24px; background: var(--ink-plum); color: var(--cream); padding: 13px 20px; border-radius: 8px; font-size: 0.9rem; z-index: 200; box-shadow: 0 10px 30px rgba(0,0,0,0.25); }
+.toast.error { background: #9c2b2b; }
+
+@media (max-width: 760px) {
+  .admin-shell { flex-direction: column; }
+  .admin-sidebar { width: 100%; display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
+  .admin-tabs { display: flex; flex-wrap: wrap; gap: 6px; }
+  .admin-tabs li button { padding: 8px 12px; }
+  .admin-logout { width: auto; margin-top: 0; margin-left: auto; }
+  .field-row { grid-template-columns: 1fr; }
+}

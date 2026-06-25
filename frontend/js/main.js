@@ -18,7 +18,7 @@ const mirrorSlides = [
     sub: "Classic, hybrid &amp; volume sets"
   },
   {
-    image: "images/hair.jpg",
+    image: "images/Screenshot 2026-06-25 223635.png",
     label: "Hair Installation",
     sub: "Wigs, weaves &amp; closures, installed right"
   },

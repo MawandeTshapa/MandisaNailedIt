@@ -5,20 +5,20 @@ document.getElementById("navToggle").addEventListener("click", () => {
   document.getElementById("navLinks").classList.toggle("open");
 });
 
-// ---------- Hero mirror rotation (local images) ----------
+// ---------- Hero mirror rotation (full‑size images) ----------
 const mirrorSlides = [
   {
-    image: "images/Screenshot 2026-06-25 220426",      // <-- upload your own image
+    image: "images/Screenshot 2026-06-25 220426",
     label: "Nails",
     sub: "Builder gel, acrylic &amp; nail art"
   },
   {
-    image: "images/lashes.jpg",     // <-- upload your own image
+    image: "images/lashes.jpg",
     label: "Lashes",
     sub: "Classic, hybrid &amp; volume sets"
   },
   {
-    image: "images/Screenshot 2026-06-25 220345.png",       // <-- upload your own image
+    image: "images/hair.jpg",
     label: "Hair Installation",
     sub: "Wigs, weaves &amp; closures, installed right"
   },
@@ -32,12 +32,16 @@ function renderMirror() {
   const s = mirrorSlides[mirrorIndex];
   mirrorSlideEl.style.opacity = 0;
   setTimeout(() => {
+    // Set the background image directly on the slide element
+    mirrorSlideEl.style.backgroundImage = `url(${s.image})`;
+    mirrorSlideEl.style.backgroundSize = "cover";
+    mirrorSlideEl.style.backgroundPosition = "center";
+    // Keep the text overlay
     mirrorSlideEl.innerHTML = `
-      <div class="slide-image">
-        <img src="${s.image}" alt="${s.label}" />
+      <div class="mirror-text">
+        <div class="label">${s.label}</div>
+        <div class="sub">${s.sub}</div>
       </div>
-      <div class="label">${s.label}</div>
-      <div class="sub">${s.sub}</div>
     `;
     mirrorSlideEl.style.opacity = 1;
   }, 200);

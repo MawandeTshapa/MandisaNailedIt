@@ -9,9 +9,9 @@ document.getElementById("navToggle").addEventListener("click", () => {
 // Add your own photos to the images/ folder (next to css/ and js/) and
 // point each slide's "img" at the right file.
 const mirrorSlides = [
-  { img: "images/nails.jpg", label: "Nails", sub: "Builder gel, acrylic &amp; nail art" },
+  { img: "images/nails.png", label: "Nails", sub: "Builder gel, acrylic &amp; nail art" },
   { img: "images/hero-lashes.jpg", label: "Lashes", sub: "Classic, hybrid &amp; volume sets" },
-  { img: "images/hair.jpg.jpg", label: "Hair Installation", sub: "Wigs, weaves &amp; closures, installed right" },
+  { img: "images/hair.png", label: "Hair Installation", sub: "Wigs, weaves &amp; closures, installed right" },
 ];
 let mirrorIndex = 0;
 const mirrorSlideEl = document.getElementById("mirrorSlide");

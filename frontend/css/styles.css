@@ -271,6 +271,16 @@ h2 {
   z-index: 0;
 }
 
+.mirror-fallback {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.mirror-fallback .glyph {
+  font-size: 2.4rem;
+}
+
 /* NO OVERLAY – your dark images will do the job */
 
 /* Pink glow border (optional – remove if you want) */

@@ -261,26 +261,6 @@ h2 {
 /* If a photo is inserted as an <img> tag rather than a CSS background-image,
    this crops it to fill the mirror frame the same way background-size: cover
    does above — image fills the shape edge-to-edge, no stretching, no overlay. */
-.mirror-slide img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  z-index: 0;
-}
-
-.mirror-fallback {
-  display: none;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-.mirror-fallback .glyph {
-  font-size: 2.4rem;
-}
-
 /* NO OVERLAY – your dark images will do the job */
 
 /* Pink glow border (optional – remove if you want) */

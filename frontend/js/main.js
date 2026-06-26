@@ -10,9 +10,9 @@ document.getElementById("navToggle").addEventListener("click", () => {
 // point each slide's "img" at the right file. If a photo is missing or
 // fails to load, the glyph below is shown instead automatically.
 const mirrorSlides = [
-  { img: "images/hero-nails.jpg", glyph: "&#128131;", label: "Nails", sub: "Builder gel, acrylic &amp; nail art" },
+  { img: "images/nails.jpg", glyph: "&#128131;", label: "Nails", sub: "Builder gel, acrylic &amp; nail art" },
   { img: "images/hero-lashes.jpg", glyph: "&#128064;", label: "Lashes", sub: "Classic, hybrid &amp; volume sets" },
-  { img: "images/hero-hair.jpg", glyph: "&#128119;", label: "Hair Installation", sub: "Wigs, weaves &amp; closures, installed right" },
+  { img: "images/hair.jpg", glyph: "&#128119;", label: "Hair Installation", sub: "Wigs, weaves &amp; closures, installed right" },
 ];
 let mirrorIndex = 0;
 const mirrorSlideEl = document.getElementById("mirrorSlide");

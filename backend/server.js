@@ -6,6 +6,7 @@ const path = require("path");
 const express = require("express");
 const connectDB = require("./config/db");
 const { createApp } = require("./app");
+console.log("MONGO ENV:", process.env.MONGO_URL);
 
 const PORT = process.env.PORT || 5000;
 const frontendPath = path.join(__dirname, "..", "frontend");

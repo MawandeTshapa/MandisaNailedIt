@@ -1,30 +1,47 @@
-// Entry point for traditional hosting: Render, Railway, a VPS, or local dev.
-// Not used by Netlify — Netlify runs netlify/functions/api.js instead, and
-// serves the frontend folder directly via its CDN. See netlify.toml.
 require("dotenv").config();
-const path = require("path");
+
 const express = require("express");
-const connectDB = require("./config/db");
-const { createApp } = require("./app");
+const cors = require("cors");
 
+const connectDB = require("./utils/db");
+
+// Routes
+const authRoutes = require("./routes/authRoutes");
+const serviceRoutes = require("./routes/serviceRoutes");
+
+// Middleware
+const protect = require("./middleware/authMiddleware");
+const adminOnly = require("./middleware/adminMiddleware");
+
+const app = express();
+
+// Connect DB
+connectDB();
+
+// Global middleware
+app.use(cors());
+app.use(express.json());
+
+// API routes
+app.use("/api/auth", authRoutes);
+app.use("/api/services", serviceRoutes);
+
+// Test route
+app.get("/", (req, res) => {
+  res.send("Mandisa Nailed It API is running...");
+});
+
+// Protected admin route
+app.get("/api/admin-test", protect, adminOnly, (req, res) => {
+  res.json({
+    message: "Welcome Admin",
+    user: req.user,
+  });
+});
+
+// Start server
 const PORT = process.env.PORT || 5000;
-const frontendPath = path.join(__dirname, "..", "frontend");
 
-async function start() {
-  try {
-    await connectDB();
-  } catch (err) {
-    console.error("Could not start server — MongoDB connection failed:", err.message);
-    process.exit(1);
-  }
-
-  const app = createApp({ apiBasePath: "/api" });
-
-  // Serve the static frontend from the same server (one deploy, one URL).
-  app.use(express.static(frontendPath));
-  app.get(/^\/(?!api).*/, (req, res) => res.sendFile(path.join(frontendPath, "index.html")));
-
-  app.listen(PORT, () => console.log(`Mandisa Nailed It API running on port ${PORT}`));
-}
-
-start();
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});

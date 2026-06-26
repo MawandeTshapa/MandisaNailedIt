@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const Admin = require("../models/Admin");
 
 async function seed() {
-  await mongoose.connect(process.env.MONGODB_URI);
+  await mongoose.connect(process.env.MONGODB_URL);
 
   const email = (process.env.SEED_ADMIN_EMAIL || "").toLowerCase();
   const password = process.env.SEED_ADMIN_PASSWORD;

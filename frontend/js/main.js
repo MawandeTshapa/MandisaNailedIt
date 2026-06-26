@@ -10,7 +10,7 @@ document.getElementById("navToggle").addEventListener("click", () => {
 // point each slide's "img" at the right file.
 const mirrorSlides = [
   { img: "images/nails.png", label: "Nails", sub: "Builder gel, acrylic &amp; nail art" },
-  { img: "images/hero-lashes.jpg", label: "Lashes", sub: "Classic, hybrid &amp; volume sets" },
+  { img: "images/Screenshot 2026-06-25 223635.png", label: "Lashes", sub: "Classic, hybrid &amp; volume sets" },
   { img: "images/hair.png", label: "Hair Installation", sub: "Wigs, weaves &amp; closures, installed right" },
 ];
 let mirrorIndex = 0;

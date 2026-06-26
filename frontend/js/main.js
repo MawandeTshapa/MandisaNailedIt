@@ -5,25 +5,15 @@ document.getElementById("navToggle").addEventListener("click", () => {
   document.getElementById("navLinks").classList.toggle("open");
 });
 
-// ---------- Hero mirror rotation (full‑size images) ----------
+// ---------- Hero mirror rotation ----------
+// Add your own photos to the images/ folder (next to css/ and js/) and
+// point each slide's "img" at the right file. If a photo is missing or
+// fails to load, the glyph below is shown instead automatically.
 const mirrorSlides = [
-  {
-    image: "images/Screenshot 2026-06-25 220426",
-    label: "Nails",
-    sub: "Builder gel, acrylic &amp; nail art"
-  },
-  {
-    image: "images/lashes.jpg",
-    label: "Lashes",
-    sub: "Classic, hybrid &amp; volume sets"
-  },
-  {
-    image: "images/Screenshot 2026-06-25 223635.png",
-    label: "Hair Installation",
-    sub: "Wigs, weaves &amp; closures, installed right"
-  },
+  { img: "images/Screenshot 2026-06-25 220426.png", glyph: "&#128131;", label: "Nails", sub: "Builder gel, acrylic &amp; nail art" },
+  { img: "images/hero-lashes.jpg", glyph: "&#128064;", label: "Lashes", sub: "Classic, hybrid &amp; volume sets" },
+  { img: "images/Screenshot 2026-06-25 220345.png", glyph: "&#128119;", label: "Hair Installation", sub: "Wigs, weaves &amp; closures, installed right" },
 ];
-
 let mirrorIndex = 0;
 const mirrorSlideEl = document.getElementById("mirrorSlide");
 const mirrorDotsEl = document.getElementById("mirrorDots");
@@ -32,13 +22,13 @@ function renderMirror() {
   const s = mirrorSlides[mirrorIndex];
   mirrorSlideEl.style.opacity = 0;
   setTimeout(() => {
-    // Set the background image directly on the slide element
-    mirrorSlideEl.style.backgroundImage = `url(${s.image})`;
-    mirrorSlideEl.style.backgroundSize = "cover";
-    mirrorSlideEl.style.backgroundPosition = "center";
-    // Keep the text overlay
     mirrorSlideEl.innerHTML = `
-      <div class="mirror-text">
+      <img class="mirror-photo" src="${s.img}" alt="${s.label}"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+      <div class="mirror-fallback">
+        <div class="glyph">${s.glyph}</div>
+      </div>
+      <div class="mirror-caption">
         <div class="label">${s.label}</div>
         <div class="sub">${s.sub}</div>
       </div>
@@ -61,7 +51,7 @@ setInterval(() => {
   renderMirror();
 }, 4500);
 
-// ---------- Helpers (unchanged) ----------
+// ---------- Helpers ----------
 function formatPrice(n) {
   return "R" + Number(n).toFixed(2);
 }
@@ -79,7 +69,7 @@ function priceMarkup(item) {
   return `<span class="now">${formatPrice(item.originalPrice ?? item.price)}</span>`;
 }
 
-// ---------- Services (unchanged) ----------
+// ---------- Services (grouped into menu cards by category) ----------
 async function loadServices() {
   const grid = document.getElementById("servicesGrid");
   try {
@@ -119,7 +109,7 @@ async function loadServices() {
   }
 }
 
-// ---------- Products (unchanged) ----------
+// ---------- Products ----------
 async function loadProducts() {
   const grid = document.getElementById("productsGrid");
   try {
@@ -150,7 +140,7 @@ async function loadProducts() {
   }
 }
 
-// ---------- Reviews (unchanged) ----------
+// ---------- Reviews ----------
 async function loadReviews() {
   const grid = document.getElementById("reviewsGrid");
   try {
@@ -174,7 +164,7 @@ async function loadReviews() {
   }
 }
 
-// ---------- Review submission (unchanged) ----------
+// ---------- Review submission ----------
 const starSelect = document.getElementById("starSelect");
 starSelect.querySelectorAll("button").forEach((btn) => {
   btn.addEventListener("click", () => {

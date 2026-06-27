@@ -7,6 +7,7 @@ const serviceRoutes = require("./routes/services");
 const productRoutes = require("./routes/products");
 const discountRoutes = require("./routes/discounts");
 const reviewRoutes = require("./routes/reviews");
+const uploadRoutes = require("./routes/upload");
 
 // All API routes live on one router, mounted at whatever base path the
 // caller needs (different on a normal server vs. inside a Netlify Function).
@@ -16,6 +17,7 @@ apiRouter.use("/services", serviceRoutes);
 apiRouter.use("/products", productRoutes);
 apiRouter.use("/discounts", discountRoutes);
 apiRouter.use("/reviews", reviewRoutes);
+apiRouter.use("/upload", uploadRoutes);
 apiRouter.get("/health", (req, res) => res.json({ status: "ok" }));
 
 /**

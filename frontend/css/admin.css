@@ -1,6 +1,9 @@
 /* Builds on css/styles.css for color/type tokens and .btn/.field styles */
 
 body.admin-body { background: var(--blush); }
+[hidden] {
+  display: none !important;
+}
 
 /* ---------- Auth screen ---------- */
 .auth-wrap {
@@ -99,3 +102,70 @@ table.admin-table tr:last-child td { border-bottom: none; }
   .admin-logout { width: auto; margin-top: 0; margin-left: auto; }
   .field-row { grid-template-columns: 1fr; }
 }
+
+.mni-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 10, 16, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 1000;
+}
+
+.mni-modal {
+  background: var(--cream, #faf6f1);
+  border-radius: 14px;
+  padding: 32px;
+  max-width: 480px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.mni-modal h3 {
+  font-family: "Fraunces", serif;
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  color: var(--plum, #3c1a2e);
+}
+
+.mni-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.field-checkbox label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+}
+
+.feedback {
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+.feedback-error { color: #b0212f; }
+.feedback-success { color: #1f7a4d; }
+
+.admin-row-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-link {
+  background: none;
+  border: none;
+  color: var(--plum, #3c1a2e);
+  text-decoration: underline;
+  cursor: pointer;
+  font-family: "Inter", sans-serif;
+  font-size: 0.9rem;
+  padding: 0;
+}
+.btn-link-danger { color: #b0212f; }

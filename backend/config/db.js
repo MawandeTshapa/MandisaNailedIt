@@ -7,7 +7,7 @@ const mongoose = require("mongoose");
 async function connectDB() {
   if (mongoose.connection.readyState === 1) return mongoose.connection;
 
-  const conn = await mongoose.connect(process.env.MONGODB_URL, {
+  const conn = await mongoose.connect(process.env.MONGO_URL, {
     // Keep a small pool — serverless functions run many short-lived
     // instances, so each one only needs a few connections, not the
     // default desktop-app-sized pool.

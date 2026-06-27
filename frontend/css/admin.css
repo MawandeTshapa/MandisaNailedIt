@@ -3,7 +3,7 @@
 body.admin-body { background: var(--blush); }
 [hidden] {
   display: none !important;
-}
+} 
 
 /* ---------- Auth screen ---------- */
 .auth-wrap {

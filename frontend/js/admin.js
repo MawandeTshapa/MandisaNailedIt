@@ -77,6 +77,34 @@
     return div.innerHTML;
   }
 
+  // Uploads a single image file to Cloudinary via our own /api/upload
+  // endpoint and returns the resulting hosted URL. Kept separate from
+  // apiFetch() because file uploads need multipart/form-data, not JSON —
+  // the browser sets that header itself when given a FormData body.
+  async function uploadImage(file) {
+    const token = getToken();
+    const formData = new FormData();
+    formData.append("image", file);
+
+    const res = await fetch(`${API_BASE}/upload`, {
+      method: "POST",
+      headers: token ? { Authorization: `Bearer ${token}` } : {},
+      body: formData,
+    });
+
+    let body = null;
+    try {
+      body = await res.json();
+    } catch (_) {
+      // no JSON body
+    }
+
+    if (!res.ok) {
+      throw new Error((body && body.message) || `Upload failed (${res.status})`);
+    }
+    return body.url;
+  }
+
   function showFeedback(el, message, isError) {
     el.textContent = message;
     el.className = isError ? "feedback feedback-error" : "feedback feedback-success";
@@ -295,9 +323,16 @@
               <label for="pStock">Stock</label>
               <input id="pStock" type="number" min="0" step="1" value="${p.stock}" />
             </div>
-            <div class="field">
-              <label for="pImage">Image URL</label>
-              <input id="pImage" value="${escapeHtml(p.image)}" />
+            <div class="field"> 
+              <label for="pImageFile">Product photo</label>
+              <input id="pImageFile" type="file" accept="image/*" />
+              <img
+                id="pImagePreview"
+                class="mni-image-preview"
+                src="${escapeHtml(p.image || "")}"
+                style="${p.image ? "" : "display:none;"}"
+                alt="Product preview"
+              />
             </div>
             <div class="field field-checkbox">
               <label><input id="pActive" type="checkbox" ${p.active ? "checked" : ""} /> Active (visible on site)</label>
@@ -321,20 +356,44 @@
       if (e.target === overlay) closeModal();
     });
 
+    document.getElementById("pImageFile").addEventListener("change", (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (ev) => {
+        const preview = document.getElementById("pImagePreview");
+        preview.src = ev.target.result;
+        preview.style.display = "block";
+      };
+      reader.readAsDataURL(file);
+    });
+
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
-      const payload = {
-        name: document.getElementById("pName").value.trim(),
-        brand: document.getElementById("pBrand").value.trim(),
-        category: document.getElementById("pCategory").value,
-        description: document.getElementById("pDescription").value.trim(),
-        price: parseFloat(document.getElementById("pPrice").value),
-        stock: parseInt(document.getElementById("pStock").value, 10) || 0,
-        image: document.getElementById("pImage").value.trim(),
-        active: document.getElementById("pActive").checked,
-      };
+      const submitBtn = form.querySelector('button[type="submit"]');
+      submitBtn.disabled = true;
+      feedback.textContent = "";
+      feedback.className = "feedback";
 
       try {
+        let imageUrl = p.image || "";
+        const fileInput = document.getElementById("pImageFile");
+        if (fileInput.files && fileInput.files[0]) {
+          feedback.textContent = "Uploading image…";
+          imageUrl = await uploadImage(fileInput.files[0]);
+        }
+
+        const payload = {
+          name: document.getElementById("pName").value.trim(),
+          brand: document.getElementById("pBrand").value.trim(),
+          category: document.getElementById("pCategory").value,
+          description: document.getElementById("pDescription").value.trim(),
+          price: parseFloat(document.getElementById("pPrice").value),
+          stock: parseInt(document.getElementById("pStock").value, 10) || 0,
+          image: imageUrl,
+          active: document.getElementById("pActive").checked,
+        };
+
         if (isEdit) {
           await apiFetch(`/products/${p._id}`, { method: "PUT", body: JSON.stringify(payload) });
         } else {
@@ -345,6 +404,7 @@
       } catch (err) {
         feedback.textContent = err.message;
         feedback.className = "feedback feedback-error";
+        submitBtn.disabled = false;
       }
     });
   }

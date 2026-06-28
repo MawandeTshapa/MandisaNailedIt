@@ -5,6 +5,8 @@ function buildTransporter() {
     host: process.env.EMAIL_HOST,
     port: Number(process.env.EMAIL_PORT) || 587,
     secure: false, // true for port 465, false for 587 (STARTTLS)
+    family: 4, // force IPv4 — Render can't route the IPv6 address Gmail's
+    // SMTP servers sometimes resolve to, which causes ENETUNREACH
     auth: {
       user: process.env.EMAIL_USER,
       pass: process.env.EMAIL_PASS,

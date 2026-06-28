@@ -21,6 +21,23 @@ body.admin-body { background: var(--blush); }
   padding: 36px 32px;
   box-shadow: 0 20px 50px rgba(42, 18, 32, 0.12);
 }
+.btn-spinner {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: mni-spin 0.7s linear infinite;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+@keyframes mni-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
 .auth-card .nav-logo { color: var(--ink-plum); font-size: 1.4rem; text-align: center; display: block; margin-bottom: 4px; }
 .auth-card .nav-logo span { color: var(--gold); }
 .auth-sub { text-align: center; color: var(--charcoal-60); font-size: 0.88rem; margin-bottom: 26px; }
@@ -75,6 +92,15 @@ table.admin-table tr:last-child td { border-bottom: none; }
 .status-pill.active, .status-pill.approved { background: rgba(47,107,58,0.12); color: #2f6b3a; }
 .status-pill.inactive, .status-pill.rejected { background: rgba(156,43,43,0.1); color: #9c2b2b; }
 .status-pill.pending { background: rgba(201,162,39,0.18); color: #8a6c10; }
+
+.status-pending { color: #9a7b1f; }
+.status-approved { color: #1f7a4d; }
+.status-rejected { color: #b0212f; }
+
+.status-live { color: #1f7a4d; }
+.status-upcoming { color: #1f6f9a; }
+.status-expired { color: #6b6b6b; }
+.status-inactive { color: #9a7b1f; }
 
 /* ---------- Modal ---------- */
 .modal-overlay {
